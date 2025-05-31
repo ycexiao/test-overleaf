@@ -1,0 +1,158 @@
+%------------------------------------------------------------------------------
+% Template file for the submission of articles to IUCr journals in LaTeX2e
+% using the iucrjournals document class (file iucrjournals.cls)
+% This work has been dedicated to the public domain
+% License: CC0 1.0 Universal
+% https://creativecommons.org/publicdomain/zero/1.0/
+%------------------------------------------------------------------------------
+% This template file and associated class and style files produce documents in
+% a preprint style suitable for submission and review purposes.
+% The iucrjournals.cls requires a small selection of packages from standard TeXLive
+% distributions and contains a minimal set of macros to define content and apply
+% formatting. BibTeX and iucr.bst should be used for references (using harvard.sty).
+% If you wish to use additional packages, please reference them in this document and
+% please only use packages included in standard TeXLive distributions in order to
+% avoid compilation problems during the submission process.
+%------------------------------------------------------------------------------
+
+\documentclass{iucrjournals}
+
+% Add extra packages here, e.g.
+% \usepackage{myfavouritepackage}
+% load standard group packages and shortcuts (can be found at billingegroup/latex_headers/ at github.org)
+\input{packages}
+\input{cmds-general}
+\input{cmds-programs}
+% check in cmds\_general.tex how to add your own color/commenting command
+
+\title{Title here
+}
+
+% Authors and affiliations (uses the standard authblk package):
+% Author affiliations are indicated by lowercase letters in square brackets in the \author macro.
+% Affiliations (referenced by the lowercase letters in square brackets) are listed after all the authors have been defined.
+% The email addresses of corresponding/contact authors can be included using:
+% \IUCrCemaillink{corrauthor@org.org}
+% Other co-author email addresses can be included using:
+% \IUCrEmaillink{coauthor@org.org}
+% ORCiDs can be included using:
+% \IUCrOrcidlink{xxxx-xxxx-xxxx-xxxx}
+% Author footnotes can be included using:
+% \IUCrAufn{Text...}
+% and to apply the same footnote to another author use:
+% \IUCrAufn[1]{}
+% where the number in square brackets refers to the numerical order of the
+% previously defined footnote.
+% For example:
+% \author[a]{Anne Author\IUCrCemaillink{corrauthor@org.org}\IUCrOrcidlink{xxxx-xxxx-xxxx-xxxx}}
+
+\author[a]{Simon~J.~L. Billinge\IUCrCemaillink{sb2896@columbia.edu}\IUCrOrcidlink{0000-0002-9734-4998}}
+\affil[a]{Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY 10025, USA}
+
+\begin{document}
+\maketitle
+
+\begin{synopsis}
+One or two sentences suitable for the Journal contents listing and use in promoting your article via social media, highlighting the findings and significance of your work.
+\end{synopsis}
+
+\begin{abstract}
+Single paragraph stating as specifically and as quantitatively as possible the principal results obtained, and providing an indication of the broader significance of the work. The abstract should be capable of being understood on its own without access to the text or figures.
+\end{abstract}
+
+\keywords{ Three or four key words/phrases separated by semi-colons. }
+
+\begin{enumerate}
+\section{Section title}
+\item \doing how to mark if you are working on a skel
+\item \done how to make if we can close a skel
+
+\begin{figure}[ht] %
+\label{fig:figure1}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{fig1.png} % NB use pdflatex for non-postscript
+\end{center}
+\caption{Caption \protect\cite{knuth84}} % NB \protect\cite{...} is required in floating figures
+\end{figure}
+
+\subsection{Subsection title}
+
+Acknowledging and documenting the sources of information or evidence you use to support your arguments or statements in an article\cite{billinge_problem_2007,keen_total_2020}.
+
+\subsubsection{Subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+
+
+\section{Section title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsection{Subsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsubsection{Subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+% Basic table
+
+\begin{table}[ht]
+\caption{Caption to table \protect\cite{lamport86}} % NB \protect\cite{...} is required in floating tables
+\smallskip
+\begin{center}
+\begin{tabular}{llcr}
+\midrule
+ HEADING    & FOR        & EACH       & COLUMN     \\
+\midrule
+ entry      & entry      & entry      & entry      \\
+ entry      & entry      & entry      & entry      \\
+ entry      & entry      & entry      & entry      \\
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\appendix % if required
+\section{Appendix title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsection{Appendix subsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsubsection{Appendix subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\begin{acknowledgements}
+\item Thank friends and contributors
+\item Acknowledge beamtlines with grants if required
+\item Acknowledge funding. Contact all PIs in the author list for their ackno statements.
+  bg statements are in the group wiki.  Here is an example: PDF analysis, modeling and writing
+  in the Billinge group was supported by U.S. Department of Energy, Office of Science, Office
+  of Basic Energy Sciences (DOE-BES) under contract No. DE-SC0024141.
+\end{acknowledgements}
+
+\ConflictsOfInterest{Please declare any conflicts of interest, or declare  that there are no conflicts of interest.
+}
+
+\DataAvailability{Please state how the data supporting the results reported in your article can be accessed, e.g. within the article, as published supporting material, in repositories, upon request...
+}
+
+\end{enumerate}
+
+\bibliography{bg-pdf-standards, billinge-group-bib, {{ cookiecutter.project_slug }}.bib, hand-coded.bib}
+\subfile{supplementary-information}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
