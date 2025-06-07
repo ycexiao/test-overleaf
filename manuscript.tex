@@ -1,0 +1,296 @@
+%------------------------------------------------------------------------------
+% Template file for the submission of articles to IUCr journals in LaTeX2e
+% using the iucrjournals document class (file iucrjournals.cls)
+% This work has been dedicated to the public domain
+% License: CC0 1.0 Universal
+% https://creativecommons.org/publicdomain/zero/1.0/
+%------------------------------------------------------------------------------
+% This template file and associated class and style files produce documents in
+% a preprint style suitable for submission and review purposes.
+% The iucrjournals.cls requires a small selection of packages from standard TeXLive
+% distributions and contains a minimal set of macros to define content and apply
+% formatting. BibTeX and iucr.bst should be used for references (using harvard.sty).
+% If you wish to use additional packages, please reference them in this document and
+% please only use packages included in standard TeXLive distributions in order to
+% avoid compilation problems during the submission process.
+%------------------------------------------------------------------------------
+
+\documentclass{iucrjournals}
+
+% Start of inserted headers
+\usepackage{afterpage}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{chemformula}
+\usepackage{commath} %http://ctan.mackichan.com/macros/latex/contrib/commath/commath.pdf
+\usepackage{comment}
+\usepackage{comment}
+\usepackage{dcolumn}
+\usepackage{enumitem}
+\usepackage[dvips]{epsfig}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphicx}% Include figure files
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{mathtools}
+\usepackage{subfiles}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xspace}
+\newcommand{\aasquared}{\AA\ensuremath{^{2}}\xspace}
+\newcommand{\adhoc}{\emph{ad hoc}\xspace}
+\newcommand{\apen}[1]{Appendix~\ref{sec:#1}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\bes}{\begin{enumerate}[wide, labelwidth=!, labelindent=0pt, label=\textbf{\textcolor{blue}{\arabic*}.}]}
+\newcommand{\bra}[1]{\left<#1\right|}
+\newcommand{\checkme}{\textcolor{orange}{{\large{$\blacktriangleleft$}}}}
+\newcommand{\cif}{\texttt{CIF}\xspace}
+\newcommand{\clustermining}{{\sc clusterMining}\xspace}
+\newcommand{\cmi}{{\sc Diffpy-CMI}\xspace}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\newcommand{\dd}{\ensuremath{\mathrm{d}}}
+\newcommand{\delq}{\ensuremath{dQ}\xspace}
+\newcommand{\delr}{\ensuremath{dr}\xspace}
+\newcommand{\delrn}{\ensuremath{dr_N}\xspace}
+\newcommand{\deltaone}{\ensuremath{\delta_1}\xspace}
+\newcommand{\deltatwo}{\ensuremath{\delta_2}\xspace}
+\newcommand{\diffpy}{\textsc{diffpy}\xspace}
+\newcommand{\doing}{\textcolor{blue}{{\large{$\blacklozenge$}}}}
+\newcommand{\done}{\textcolor{dgreen}{{\large{$\checkmark$}}}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\ees}{\end{enumerate}}
+\newcommand{\eq}[1]{Eq.~\ref{eq:#1}}
+\newcommand{\eqs}[1]{Eqs.~\ref{eq:#1}}
+\newcommand{\esuite}{{\sc ePDFsuite}\xspace}
+\newcommand{\etal}{\emph{et al.}\xspace}
+\newcommand{\fig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\figs}[1]{Figs.~\ref{fig:#1}}
+\newcommand{\fixme}{\textcolor{red}{{\large{$\blacktriangleright$}}}}
+\newcommand{\fq}{\ensuremath{F(Q)}\xspace}
+\newcommand{\getx}{{\sc PDFgetX3}\xspace}
+\newcommand{\gr}{\ensuremath{G(r)}\xspace}
+\newcommand{\gui}{{\sc PDFgui}\xspace}
+\newcommand{\guitwo}{{\sc PDFgui2}\xspace}
+\newcommand{\iaa}{\AA\ensuremath{^{-1}}\xspace}
+\newcommand{\iaasquared}{\AA\ensuremath{^{-2}}\xspace}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\insitu}{\emph{in situ}\xspace}
+\newcommand{\iq}{\ensuremath{I(Q)}\xspace}
+\newcommand{\ir}{\ensuremath{r}\xspace}
+\newcommand{\itc}{{\sc PDFitc}\xspace}
+\newcommand{\jupyter}{{\sc Jupyter}\xspace}
+\newcommand{\kalpha}{\ensuremath{K_\alpha}\xspace}
+\newcommand{\kbeta}{\ensuremath{K_\beta}\xspace}
+\newcommand{\ket}[1]{\left|#1\right>}
+\newcommand{\labpdfproc}{\textsc{diffpy.labpdfproc}\xspace}
+\newcommand{\mmax}{\ensuremath{m_{\mathrm{max}}}\xspace}
+\newcommand{\morph}{{\sc PDFmorph}\xspace}
+\newcommand{\motexml}{{\sc MotEx-ML}\xspace}
+\newcommand{\mpdf}{{\sc diffpy.mpdf}\xspace}
+\newcommand{\mt}[1]{\textcolor{orange}{[mt:#1]}}
+\newcommand{\mta}[1]{}
+\newcommand{\nmfmapping}{{\sc nmfMapping}\xspace}
+\newcommand{\operando}{\emph{operando}\xspace}
+\newcommand{\plotdata}{{\sc plotdata}\xspace}
+\newcommand{\pycharm}{{\sc PyCharm}\xspace}
+\newcommand{\pyfai}{{\sc PyFai}\xspace}
+\newcommand{\q}{\ensuremath{Q}\xspace}
+\newcommand{\qbroad}{\ensuremath{Q_{\mathrm{broad}}}\xspace}
+\newcommand{\qdamp}{\ensuremath{Q_{\mathrm{damp}}}\xspace}
+\newcommand{\qmax}{\ensuremath{Q_{\mathrm{max}}}\xspace}
+\newcommand{\qmaxinst}{\ensuremath{Q_{\mathrm{max-inst}}}\xspace}
+\newcommand{\qmin}{\ensuremath{Q_{\mathrm{min}}}\xspace}
+\newcommand{\qualp}{\ensuremath{\mathcal{Q}_p}\xspace}
+\newcommand{\rapdf}{\textit{RA-PDF}\space}
+\newcommand{\rlim}{\ensuremath{r_{\mathrm{lim}}}\xspace}
+\newcommand{\rmax}{\ensuremath{r_{\mathrm{max}}}\xspace}
+\newcommand{\rmin}{\ensuremath{r_{\mathrm{min}}}\xspace}
+\newcommand{\rpoly}{\ensuremath{rpoly}\xspace}
+\newcommand{\rr}{\ensuremath{R(r)}\xspace}
+\newcommand{\rw}{\ensuremath{R_w}\xspace}
+\newcommand{\sect}[1]{Section~\ref{sec:#1}}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\shed}{{\sc SHED}\xspace}
+\newcommand{\sjb}[1]{\textcolor{blue}{[sjb:#1]}}
+\newcommand{\sjba}[1]{}
+\newcommand{\spdiameter}{\ensuremath{sp_{\mathrm{diameter}}}\xspace}
+\newcommand{\sq}{\ensuremath{S(Q)}\xspace}
+\newcommand{\sratio}{\ensuremath{sratio}\xspace}
+\newcommand{\srfit}{{\sc SrFit}\xspace}
+\newcommand{\srmise}{{\sc SrMise}\xspace}
+\newcommand{\srxplanar}{{\sc SrXplanar}\xspace}
+\newcommand{\strumining}{{\sc structureMining}\xspace}
+\newcommand{\tabl}[1]{Table~\ref{table:#1}}
+\newcommand{\uaniso}{\ensuremath{U_{\mathrm{aniso}}}\xspace}
+\newcommand{\uiso}{\ensuremath{U_{\mathrm{iso}}}\xspace}
+\newcommand{\utils}{\textsc{diffpy.utils}\xspace}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\xpdacq}{{\sc xpdAcq}\xspace}
+\newcommand{\xpdan}{{\sc xpdAn}\xspace}
+\newcommand{\xpdtools}{{\sc xpdtools}\xspace}
+\newcommand{\xsuite}{{\sc xPDFsuite}\xspace}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{dgreen}{HTML}{008000}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\newcounter{saveenumi}
+\lstset{style=mystyle}
+\graphicspath{ {./figures/} }
+% End of inserted headers
+
+
+\title{Title here
+}
+
+% Authors and affiliations (uses the standard authblk package):
+% Author affiliations are indicated by lowercase letters in square brackets in the \author macro.
+% Affiliations (referenced by the lowercase letters in square brackets) are listed after all the authors have been defined.
+% The email addresses of corresponding/contact authors can be included using:
+% \IUCrCemaillink{corrauthor@org.org}
+% Other co-author email addresses can be included using:
+% \IUCrEmaillink{coauthor@org.org}
+% ORCiDs can be included using:
+% \IUCrOrcidlink{xxxx-xxxx-xxxx-xxxx}
+% Author footnotes can be included using:
+% \IUCrAufn{Text...}
+% and to apply the same footnote to another author use:
+% \IUCrAufn[1]{}
+% where the number in square brackets refers to the numerical order of the
+% previously defined footnote.
+% For example:
+% \author[a]{Anne Author\IUCrCemaillink{corrauthor@org.org}\IUCrOrcidlink{xxxx-xxxx-xxxx-xxxx}}
+
+\author[a]{Simon~J.~L. Billinge\IUCrCemaillink{sb2896@columbia.edu}\IUCrOrcidlink{0000-0002-9734-4998}}
+\affil[a]{Department of Applied Physics and Applied Mathematics, Columbia University, New York, NY 10025, USA}
+
+\begin{document}
+\maketitle
+
+\begin{synopsis}
+One or two sentences suitable for the Journal contents listing and use in promoting your article via social media, highlighting the findings and significance of your work.
+\end{synopsis}
+
+\begin{abstract}
+Single paragraph stating as specifically and as quantitatively as possible the principal results obtained, and providing an indication of the broader significance of the work. The abstract should be capable of being understood on its own without access to the text or figures.
+\end{abstract}
+
+\keywords{ Three or four key words/phrases separated by semi-colons. }
+
+\begin{enumerate}
+\section{Section title}
+\item \doing how to mark if you are working on a skel
+\item \done how to make if we can close a skel
+
+\begin{figure}[ht] %
+\label{fig:figure1}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{fig1.png} % NB use pdflatex for non-postscript
+\end{center}
+\caption{Caption \protect\cite{knuth84}} % NB \protect\cite{...} is required in floating figures
+\end{figure}
+
+\subsection{Subsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsubsection{Subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+
+
+\section{Section title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsection{Subsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsubsection{Subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+% Basic table
+
+\begin{table}[ht]
+\caption{Caption to table \protect\cite{lamport86}} % NB \protect\cite{...} is required in floating tables
+\smallskip
+\begin{center}
+\begin{tabular}{llcr}
+\midrule
+ HEADING    & FOR        & EACH       & COLUMN     \\
+\midrule
+ entry      & entry      & entry      & entry      \\
+ entry      & entry      & entry      & entry      \\
+ entry      & entry      & entry      & entry      \\
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\appendix % if required
+\section{Appendix title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsection{Appendix subsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\subsubsection{Appendix subsubsection title}
+
+Text text text text text text text text text text text text text text
+text text text text text text text.
+
+\begin{acknowledgements}
+\item Thank friends and contributors
+\item Acknowledge beamtlines with grants if required
+\item Acknowledge funding. Contact all PIs in the author list for their ackno statements.
+  bg statements are in the group wiki.  Here is an example: PDF analysis, modeling and writing
+  in the Billinge group was supported by U.S. Department of Energy, Office of Science, Office
+  of Basic Energy Sciences (DOE-BES) under contract No. DE-SC0024141.
+\end{acknowledgements}
+
+\ConflictsOfInterest{Please declare any conflicts of interest, or declare  that there are no conflicts of interest.
+}
+
+\DataAvailability{Please state how the data supporting the results reported in your article can be accessed, e.g. within the article, as published supporting material, in repositories, upon request...
+}
+
+\end{enumerate}
+
+\bibliography{bg-pdf-standards, billinge-group-bib, {{ cookiecutter.project_slug }}.bib, hand-coded.bib}
+\subfile{supplementary-information}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
