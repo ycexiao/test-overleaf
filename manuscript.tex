@@ -1,0 +1,155 @@
+%------------------------------------------------------------------------------
+% Template file for the basic latex article class
+\documentclass{article}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage[dvips]{epsfig}
+\usepackage{epstopdf}
+\usepackage{graphicx}% Include figure files
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{amsfonts}
+% place all figures in a sub-folder called figures, located in the folder where
+% the main latex file is
+
+%Packages
+%
+
+%get the floats right
+
+%math packages for more advanced math
+
+
+% then when you include the graphics, do not put any path there
+% e.g., \includegraphics[width=0.8\textwidth]{<name>}
+% for a figure called <name>.pdf (or <name>.png, or <name>.jpg...latex will do
+% its best to choose the extension from known image file types).
+%
+% as preference use pdf format files.  These are vector graphics and so produce
+% higher quality images at all scales.
+\graphicspath{ {./figures/} }
+
+
+%units
+\newcommand{\iaa}{\AA\ensuremath{^{-1}}\xspace}
+\newcommand{\iaasquared}{\AA\ensuremath{^{-2}}\xspace}
+\newcommand{\aasquared}{\AA\ensuremath{^{2}}\xspace}
+
+% comments
+% Add your own here. Pick your own color.
+\newcommand{\sjb}[1]{\textcolor{blue}{[sjb:#1]}}
+
+% correctly formated latin
+\newcommand{\etal}{\emph{et al.}\xspace}
+\newcommand{\adhoc}{\emph{ad hoc}\xspace}
+\newcommand{\insitu}{\emph{in situ}\xspace}
+\newcommand{\operando}{\emph{operando}\xspace}
+
+
+% Colored symbols used during editing.
+% Also, define new colors here if you like
+\definecolor{dgreen}{HTML}{008000}
+\newcommand{\done}{\textcolor{dgreen}{{\large{$\checkmark$}}}}
+\newcommand{\doing}{\textcolor{blue}{{\large{$\blacklozenge$}}}}
+\newcommand{\checkme}{\textcolor{orange}{{\large{$\blacktriangleleft$}}}}
+\newcommand{\fixme}{\textcolor{red}{{\large{$\blacktriangleright$}}}}
+
+% some style preferences for code listings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+\title{A Small \LaTeX{} Article Template\thanks{To your mother}}
+\author{Your Name  \\
+	Your Company / University  \\
+	\and
+	The Other Dude \\
+	His Company / University \\
+	}
+
+\date{\today}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand
+% before or after the \begin{document} command
+% BUT the \maketitle command MUST come AFTER the \begin{document} command!
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Short introduction to subject of the paper \ldots
+\end{abstract}
+
+\section{Introduction}
+Make it possible for all to write documents with \LaTeX{}!
+Thanks to https://www.namsu.de/Extra/klassen/latex-article-template.html
+for the template
+
+\paragraph{Outline}
+First we start with a little example of the article class, which is an
+important documentclass. But there would be other documentclasses like
+book \ref{book}, report \ref{report} and letter \ref{letter} which are
+described in Section \ref{documentclasses}. Finally, Section
+\ref{conclusions} gives the conclusions.
+
+
+
+\section{Documentclasses} \label{documentclasses}
+
+\begin{itemize}
+\item article
+\item book
+\item report
+\item letter
+\end{itemize}
+
+
+\begin{enumerate}
+\item article
+\item book
+\item report
+\item letter
+\end{enumerate}
+
+\begin{description}
+\item[article\label{article}]{Article is \ldots}
+\item[book\label{book}]{The book class \ldots}
+\item[report\label{report}]{Report gives you \ldots}
+\item[letter\label{letter}]{If you want to write a letter.}
+\end{description}
+
+
+\section{Conclusions}\label{conclusions}
+There is no longer \LaTeX{} example which was written by \cite{dirac1928}.
+
+\bibliography{{{ cookiecutter.project_name }}.bib,user-default.bib}
+\bibliographystyle{chicago}
+
+
+\end{document}

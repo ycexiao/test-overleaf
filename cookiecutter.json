@@ -1,0 +1,6 @@
+{
+  "project_name": "manuscript-name",
+  "journal_template": "article",
+  "latex_headers_repo_url": "use-scikit-package-default",
+  "_repo_dir": "scikit-package-manuscript/"
+}
